@@ -17,21 +17,19 @@ Exercise:
     all the TS errors.
 
 */
-
 interface User {
     name: string;
     age: number;
-    occupation?: string;
+    occupation: string;
 }
 
 interface Admin {
     name: string;
     age: number;
-    role?: string;
+    role: string;
 }
 
-export interface Person extends User, Admin {
-}
+export type Person = User | Admin;
 
 export const persons: Person[] /* <- Person[] */ = [
     {

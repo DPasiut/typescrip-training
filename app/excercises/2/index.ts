@@ -18,18 +18,19 @@ Exercise:
 
 */
 
-interface User{
+interface User {
     name: string;
     age: number;
     occupation?: string;
 }
 
-interface Admin{
+interface Admin {
     name: string;
     age: number;
     role?: string;
 }
-export interface Person extends User, Admin{
+
+export interface Person extends User, Admin {
 }
 
 export const persons: Person[] /* <- Person[] */ = [

@@ -93,8 +93,8 @@ export function logPerson(person: Person) {
 export function filterUsers(persons: Person[], criteria: { age: number }): User[] {
     return persons.filter(isUser).filter((user) => {
         const criteriaKeys = Object.keys(criteria) as (keyof Omit<User, "type">)[];
-        return criteriaKeys.filter(() => {
-            return user.age === criteria.age;
+        return criteriaKeys.filter((fieldName) => {
+            return user[fieldName] === criteria[fieldName];
         });
     });
 }

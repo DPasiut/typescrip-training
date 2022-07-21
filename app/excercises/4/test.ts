@@ -1,5 +1,50 @@
-import {IsTypeEqual, FirstArgument, typeAssert} from 'type-assertions';
-import {logPerson, isUser, isAdmin, Person, persons} from './index';
+import {IsTypeEqual, IsTypeAssignable, Not, FirstArgument, SecondArgument, typeAssert} from 'type-assertions';
+import {logPerson, isUser, isAdmin, Person, persons, filterUsers} from './index';
+
+typeAssert<
+    IsTypeAssignable<
+        SecondArgument<typeof filterUsers>,
+        {name: string}
+        >
+    >();
+typeAssert<
+    IsTypeAssignable<
+        SecondArgument<typeof filterUsers>,
+        {age: number}
+        >
+    >();
+typeAssert<
+    IsTypeAssignable<
+        SecondArgument<typeof filterUsers>,
+        {name: string; age: number}
+        >
+    >();
+typeAssert<
+    IsTypeAssignable<
+        SecondArgument<typeof filterUsers>,
+        {occupation: string}
+        >
+    >();
+typeAssert<
+    IsTypeAssignable<
+        SecondArgument<typeof filterUsers>,
+        {name: string; age: number; occupation: string}
+        >
+    >();
+typeAssert<
+    Not<
+        IsTypeAssignable<
+            SecondArgument<typeof filterUsers>,
+            {hello: 'world'}
+            >
+        >
+    >();
+typeAssert<
+    IsTypeEqual<
+        ReturnType<typeof filterUsers>,
+        {type: 'user'; name: string; age: number; occupation: string}[]
+        >
+    >();
 
 typeAssert<
     IsTypeEqual<

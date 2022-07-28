@@ -1,5 +1,6 @@
 import {IsTypeEqual, IsTypeAssignable, Not, FirstArgument, SecondArgument, typeAssert} from 'type-assertions';
-import {logPerson, isUser, isAdmin, Person, persons, filterUsers} from './index';
+import {logPerson, isUser, isAdmin, Person, persons, } from './index';
+import {filterUsers} from "../5";
 
 typeAssert<
     IsTypeAssignable<
